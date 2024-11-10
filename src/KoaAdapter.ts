@@ -38,8 +38,12 @@ export class KoaAdapter extends AbstractHttpAdapter<
 > {
   private router?: KoaRouter;
 
-  constructor(instance: Koa = new Koa()) {
+  constructor(instance: Koa = new Koa(), router?: KoaRouter) {
     super(instance);
+
+    if (router) {
+      this.router = router;
+    }
   }
 
   private getRouter(): KoaRouter {
